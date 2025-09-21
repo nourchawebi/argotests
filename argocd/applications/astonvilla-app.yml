@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: astonvilla-app
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    namespace: astonvilla
+    server: https://kubernetes.default.svc
+  source:
+    path: astonvilla-app
+    repoURL: "https://github.com/nourchawebi/argotests.git"
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: astonvilla-svc
+  namespace: internship
+spec:
+  selector:
+    app: astonvilla-pod
+  ports:
+  - protocol: TCP
+    port: 4200
+    targetPort: 80
+    
+  type: ClusterIP
